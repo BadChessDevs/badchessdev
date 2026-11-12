@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -118,7 +118,7 @@ h1 em,h2 em{font-style:normal;color:var(--g)}
 .how{display:flex;align-items:center;gap:12px;margin:72px 0 24px;font-size:1.6rem;letter-spacing:-.03em}
 .how .i{color:var(--g)}
 .steps{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
-@media(min-width:860px){.steps{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:480px){.steps{grid-template-columns:1fr}}
 .steps .card{padding:20px}
 .steps b{display:block;font-size:1.7rem;color:var(--g);font-weight:800;line-height:1.2}
@@ -208,23 +208,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
       <div class="card rise" style="--d:.2s">
         <div class="top"><div class="ico"><svg class="i"><use href="#crown"/></svg></div><span class="ver">New</span></div>
         <h3>BadChess Pro</h3>
-        <a class="btn block" data-ext="pro" href="#get"><svg class="i"><use href="#dl"/></svg>Download</a>
+        <a class="btn block" data-ext="pro" href="#get"><svg class="i"><use href="#chrome"/></svg>Add to Chrome</a>
       </div>
       <div class="card rise" style="--d:.3s">
         <div class="top"><div class="ico"><svg class="i"><use href="#radio"/></svg></div><span class="ver">v1.0</span></div>
         <h3>Streamer Companion</h3>
-        <a class="btn block" data-ext="streamer" href="#get"><svg class="i"><use href="#dl"/></svg>Download</a>
+        <a class="btn block" data-ext="streamer" href="#get"><svg class="i"><use href="#chrome"/></svg>Add to Chrome</a>
       </div>
     </div>
     <div class="soon rise" style="--d:.4s"><h4>More extensions on the way</h4><p>We’re cooking up the next one.</p></div>
 
     <h2 class="how reveal"><svg class="i"><use href="#chrome"/></svg>How to install</h2>
     <div class="steps">
-      <div class="card reveal" style="--d:0s"><b>1</b><span>Download and unzip the file.</span></div>
-      <div class="card reveal" style="--d:.1s"><b>2</b><span>Open <code>chrome://extensions</code> in Chrome.</span></div>
-      <div class="card reveal" style="--d:.2s"><b>3</b><span>Turn on Developer mode (top right).</span></div>
-      <div class="card reveal" style="--d:.3s"><b>4</b><span>Click Load unpacked and pick the folder.</span></div>
-    </div>
+      <div class="card reveal" style="--d:0s"><b>1</b><span>Click <strong>Add to Chrome</strong> on the extension you want.</span></div>
+      <div class="card reveal" style="--d:.1s"><b>2</b><span>On the Chrome Web Store page, click <strong>Add to Chrome</strong> again and confirm.</span></div>
+      <div class="card reveal" style="--d:.2s"><b>3</b><span>Pin it from the puzzle-piece menu, then open chess.com.</span></div>
+      </div>
   </div>
 </div>
 </main>
@@ -233,8 +232,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 <script>
 (function(){
-  // Put your download links here (zip files or store pages).
-  var URLS={streamer:"https://www.mediafire.com/file/fcyjxh8l21orcvr/BadChess_Streamer_Companion.zip/file",pro:"https://www.mediafire.com/file/ibsg55qtsqdfacp/BadChess_Pro.zip/file"};
+  // Paste your Chrome Web Store links here. While a store link is empty, that button falls back to the zip.
+  var STORE={pro:"https://chromewebstore.google.com/detail/badchess/oplckbmcanlmmedmlcnmhamoglcegaba",streamer:"https://chromewebstore.google.com/detail/badchess-streamer-compani/nfffhempihgkdojmgmcidnnbmpkggfib"};
+  var ZIP={streamer:"https://www.mediafire.com/file/fcyjxh8l21orcvr/BadChess_Streamer_Companion.zip/file",pro:"https://www.mediafire.com/file/ibsg55qtsqdfacp/BadChess_Pro.zip/file"};
+  var URLS={pro:STORE.pro||ZIP.pro,streamer:STORE.streamer||ZIP.streamer};
   document.documentElement.classList.add("js");
   document.querySelectorAll("[data-ext]").forEach(function(a){
     var u=URLS[a.dataset.ext];
